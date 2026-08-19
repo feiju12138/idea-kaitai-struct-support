@@ -1,0 +1,26 @@
+<idea-plugin>
+    <resource-bundle>cn.fj.loli.kaitaistructsupport.KaitaiStructSupportBundle</resource-bundle>
+
+    <depends>com.intellij.modules.lang</depends>
+    <depends optional="true" config-file="cn.fj.loli.kaitaistructsupport-withHexSupport.xml">cn.fj.loli.hexsupport</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="Kaitai Struct YAML" language="KaitaiStruct"
+                  implementationClass="cn.fj.loli.kaitaistructsupport.KaitaiStructFileType"
+                  fieldName="INSTANCE" extensions="ksy"/>
+        <lang.parserDefinition language="KaitaiStruct"
+                               implementationClass="cn.fj.loli.kaitaistructsupport.psi.KaitaiStructParserDefinition"/>
+        <lang.syntaxHighlighterFactory language="KaitaiStruct"
+                                       implementationClass="cn.fj.loli.kaitaistructsupport.highlighting.KaitaiStructSyntaxHighlighterFactory"/>
+        <completion.contributor language="KaitaiStruct"
+                                implementationClass="cn.fj.loli.kaitaistructsupport.completion.KaitaiStructCompletionContributor"/>
+        <lang.commenter language="KaitaiStruct"
+                        implementationClass="cn.fj.loli.kaitaistructsupport.editor.KaitaiStructCommenter"/>
+        <lang.braceMatcher language="KaitaiStruct"
+                           implementationClass="cn.fj.loli.kaitaistructsupport.editor.KaitaiStructBraceMatcher"/>
+        <lang.quoteHandler language="KaitaiStruct"
+                           implementationClass="cn.fj.loli.kaitaistructsupport.editor.KaitaiStructQuoteHandler"/>
+        <colorSettingsPage implementation="cn.fj.loli.kaitaistructsupport.highlighting.KaitaiStructColorSettingsPage"/>
+    </extensions>
+</idea-plugin>
+
