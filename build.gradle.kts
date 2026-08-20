@@ -6,12 +6,12 @@ plugins {
 }
 
 group = "cn.fj.loli"
-version = "1.0.0"
+version = "1.0.1"
 
 val localIdePath = providers.gradleProperty("localIdePath")
 val hexSupportPluginPath = providers.gradleProperty("hexSupportPluginPath")
 val adjacentHexSupport = layout.projectDirectory.file(
-    "../idea-hex-support/build/distributions/idea-hex-support-3.0.0.zip"
+    "../idea-hex-support/build/distributions/idea-hex-support-3.0.1.zip"
 )
 
 dependencies {
@@ -46,10 +46,11 @@ intellijPlatform {
         version = project.version.toString()
         description = """
             <p>Language support for Kaitai Struct YAML (.ksy) files in IntelliJ-based IDEs.</p>
-            <p>Provides YAML-style syntax highlighting, context-aware KSY completion, and optional Hex Support structure analysis powered by the bundled official Kaitai Struct Compiler.</p>
+            <p>Provides YAML-style syntax highlighting, context-aware KSY completion, and an optional Hex Support structure analysis provider powered by the bundled official Kaitai Struct Compiler.</p>
         """.trimIndent()
         changeNotes = """
             <ul>
+                <li>1.0.1: Standardize the shared Hex Support structure analysis phrase in Marketplace metadata so Hex Support can discover this provider without maintaining a plugin ID.</li>
                 <li>1.0.0: Add .ksy file recognition, YAML-style syntax highlighting, context-aware completion for KSY keys, primitive types and values, comment and quote support, configurable colors, and an optional Hex Support structure provider.</li>
             </ul>
         """.trimIndent()
